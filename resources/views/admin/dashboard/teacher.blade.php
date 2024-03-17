@@ -25,6 +25,18 @@
 
 
 <div class="">
+    @if(session('success'))
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-3 alert-success" role="alert">
+        <strong class="font-bold">Success!</strong>
+        <span class="block sm:inline">{{ session('success') }}</span>
+        <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+            <svg class="close fill-current h-6 w-6 text-green-500" role="button" onclick="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <title>Close</title>
+                <path fill-rule="evenodd" d="M14.354 5.354a1 1 0 0 0-1.414 0L10 8.586 6.646 5.354a1 1 0 1 0-1.414 1.414L8.586 10l-3.242 3.242a1 1 0 1 0 1.414 1.414L10 11.414l3.354 3.242a1 1 0 1 0 1.414-1.414L11.414 10l3.242-3.246a1 1 0 0 0 0-1.4z" clip-rule="evenodd"/>
+            </svg>
+        </span>
+    </div>
+@endif
     <div class="header_txt flex justify-between bg-white p-4 rounded">
         <h1 class="text-lg font-semibold">Manage Teacher</h1>
 
@@ -160,4 +172,13 @@
 
 
 
+@endsection
+@section('script')
+<script>
+     $(document).ready(function() {
+        $('.close').on('click', function() {
+            $('.alert-success').remove(); // Remove the alert div when close button is clicked
+        });
+    });
+</script>
 @endsection
