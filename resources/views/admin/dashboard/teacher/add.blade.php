@@ -31,7 +31,16 @@
     </div>
 </div>
 <div class="add_wrapper bg-white p-4 mt-3 text-sm">
-    <form action="" method="POST" enctype="multipart/form-data">
+    @if ($errors->any())
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+    <form action="{{ route('admin.createTeacher') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="personal_info_wrapper">
             <div class="personal_info bg-gray-100 p-4 rounded">
@@ -43,19 +52,19 @@
                     <div class="">
                         <label for="first_name" class="block">First Name <span class="text-red-700">*</span></label>
                         <input type="text" name="first_name" id="first_name" placeholder="Enter First Name"
-                            class="p-3 border border-gray-300 rounded my-2 w-full" required>
+                            class="p-3 border border-gray-300 rounded my-2 w-full">
                     </div>
                     <div>
                         <label for="last_name" class="block">Last Name <span class="text-red-700">*</span></label>
                         <input type="text" name="last_name" id="last_name" placeholder="Enter Last Name"
-                            class="p-3 border border-gray-300 rounded my-2 w-full" required>
+                            class="p-3 border border-gray-300 rounded my-2 w-full" >
                     </div>
 
 
                     <div>
                         <label for="gender" class="block">Gender <span class="text-red-700">*</span></label>
                         <select name="gender" id="gender"
-                            class="p-3 border border-gray-300 bg-white rounded my-2 w-full" required>
+                            class="p-3 border border-gray-300 bg-white rounded my-2 w-full">
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Other">Other</option>
@@ -65,13 +74,13 @@
                     <div>
                         <label for="dob" class="block">Date of Birth <span class="text-red-700">*</span></label>
                         <input type="date" name="dob" id="dob" class="p-3 border border-gray-300 rounded my-2 w-full"
-                            required>
+                          >
                     </div>
 
                     <div>
                         <label for="caste" class="block">Caste <span class="text-red-700">*</span></label>
                         <input type="text" name="caste" id="caste" placeholder="Enter Caste"
-                            class="p-3 border border-gray-300 rounded my-2 w-full" required>
+                            class="p-3 border border-gray-300 rounded my-2 w-full" >
                     </div>
 
                     <div class="mb-4">
@@ -80,7 +89,7 @@
                         </label>
                         <input type="file" name="teacher_photo" id="teacher_photo"
                             class="p-3 border border-gray-300 rounded my-2 w-full bg-gray-100 focus:outline-none focus:border-blue-500"
-                            required>
+                            >
                     </div>
                 </div>
             </div>
@@ -99,11 +108,11 @@
                         <label for="dep_teacher" class="block uppercase">Department <span
                                 class="text-red-700">*</span></label>
                         <input type="tel" name="dep_teacher" id="dep_teacher" placeholder="Choose department"
-                            class="p-3 border border-gray-300 rounded my-2 w-full" required>
+                            class="p-3 border border-gray-300 rounded my-2 w-full" >
                     </div>
                     <div>
                         <label for="class_info" class="block">Class <span class="text-red-700">*</span></label>
-                        <select name="class_info" id="class_info" class="p-3 border border-gray-300 rounded my-2 w-full" required>
+                        <select name="class_info" id="class_info" class="p-3 border border-gray-300 rounded my-2 w-full">
                             <option value="" disabled selected>Select Class</option>
                             <option value="class1">Class 1</option>
                             <option value="class2">Class 2</option>
@@ -114,7 +123,7 @@
                     </div>
                     <div>
                         <label for="emp_type" class="block">Employment Type <span class="text-red-700">*</span></label>
-                        <select name="emp_type" id="emp_type" class="p-3 border border-gray-300 rounded my-2 w-full" required>
+                        <select name="emp_type" id="emp_type" class="p-3 border border-gray-300 rounded my-2 w-full">
                             <option value="" disabled selected>Select Employment Type</option>
                             <option value="part-time">Part-Time</option>
                             <option value="full-time">Full-Time</option>
@@ -141,19 +150,19 @@
                         <label for="ph_num" class="block uppercase">Phone Number <span
                                 class="text-red-700">*</span></label>
                         <input type="tel" name="ph_num" id="ph_num" placeholder="Phone Number"
-                            class="p-3 border border-gray-300 rounded my-2 w-full" required>
+                            class="p-3 border border-gray-300 rounded my-2 w-full">
                     </div>
                     <div>
                         <label for="pwd" class="block">Password <span class="text-red-700">*</span></label>
                         <input type="password" name="pwd" id="pwd" placeholder="Password"
-                            class="p-3 border border-gray-300 rounded my-2 w-full" required>
+                            class="p-3 border border-gray-300 rounded my-2 w-full" >
                     </div>
                     <div>
                         <label for="confirm_password" class="block">Confirm Password <span
                                 class="text-red-700">*</span></label>
                         <input type="password" name="confirm_password" id="confirm_password"
                             placeholder="Confirm Password" class="p-3 border border-gray-300 rounded my-2 w-full"
-                            required>
+                        >
                     </div>
                 </div>
             </div>

@@ -32,6 +32,7 @@ Route::get('/admin/teachers', [AdminController::class,'teacher'])->name('admin.t
 Route::get('/admin/teacher/edit', [AdminController::class,'teacherEdit'])->name('admin.teacherEdit');
 Route::get('/admin/teacher/view', [AdminController::class,'teacherView'])->name('admin.teacherView');
 Route::get('/admin/teacher/create-new', [AdminController::class,'addTeacher'])->name('admin.addTeacher');
+Route::post('/admin/teacher/create-new', [AdminController::class,'createTeacher'])->name('admin.createTeacher');
 
 
 

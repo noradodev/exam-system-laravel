@@ -128,10 +128,10 @@
     </div>
 
     <!-- Include your script files here -->
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @yield('script')
     <script>
-        const btnCollapse = document.querySelector(".sidebar-collapse");
+const btnCollapse = document.querySelector(".sidebar-collapse");
   const sideBarNoText = document.querySelector(".sidebar-wrapper");
   const collapseImg = document.querySelector(".collapse-img");
   const menuText = document.querySelectorAll(".menu-txt");
